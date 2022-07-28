@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
@@ -17,6 +17,8 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
+    const navigate = useNavigate();
+
     const handleResetEmail = async () => {
         await sendPasswordResetEmail(email);
         toast.success("Reset email sent!");
@@ -25,6 +27,7 @@ const Login = () => {
     const onSubmit = data => {
         setEmail(data.email);
         signInWithEmailAndPassword(data.email, data.password);
+        navigate('/');
     };
 
     let logInError;
