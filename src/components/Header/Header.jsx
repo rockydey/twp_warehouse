@@ -18,7 +18,7 @@ const Header = () => {
                             <li><Link className='text-lg font-normal text-white' to='/login'>Login</Link></li>
                         </ul>
                     </div>
-                    <a href='/' class="normal-case font-bold text-4xl text-white">TWP</a>
+                    <Link to='/' class="normal-case font-bold text-4xl text-white">T<span className='text-secondary'>W</span>P</Link>
                 </div>
                 <div class="navbar-end hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
